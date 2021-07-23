@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-terxt & v-html实例</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <!-- 压缩版无法使用vue.js devtools -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js"></script> -->
+</head>
+<body>
+<h1>v-text & v-html实例</h1>
+<hr>
+<div id="app">
+  <span>{{message}}</span>=<span v-text="message"></span> <br/>
+  <span>{{hMessage}}</span>=<span v-html="hMessage"></span>
+</div>
+
+<script type="text/javascript">
+  var app = new Vue({
+    el: "#app",
+    data: function () {
+      return {
+        message: "hello world!",
+        hMessage: "<h2>hello vue!</h2>"
+      }
+    }
+  });
+</script>
+
+</body>
+</html>

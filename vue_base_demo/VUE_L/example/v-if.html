@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-if&v-else&v-show</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <!-- 压缩版无法使用vue.js devtools -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js"></script> -->
+</head>
+<body>
+<h1>v-if&v-else&v-show</h1>
+<hr>
+<div id="app">
+  <div v-if="isLogin">你好，vue.js</div>
+  <div v-else>你好，请登录。</div>
+  <div v-show="isLogin">你好，vue.js</div>
+
+  <!-- v-if判断是否加载，v-show调整标签的css的display属性 -->
+
+
+</div>
+
+<script type="text/javascript">
+  var app = new Vue({
+    el: "#app",
+    data: {
+      isLogin: true,
+    }
+  })
+</script>
+
+</body>
+</html>

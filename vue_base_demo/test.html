@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+
+<div ng-repeat="o in outer track by $index">
+  <div ng-repeat="i in inner track by $index">
+    <span>$parent.$index:{{$parent.$index}}==$index:{{$index}}==outer:{{o}}==inner:{{i}}</span>
+  </div>
+</div>
+
+<script>
+  var app = angular.module("myApp", []);
+  app.controller("myCtrl", function ($scope) {
+    $scope.outer = [
+      "o1",
+      "o2"
+    ];
+    $scope.inner = [
+      "i1",
+      "i2"
+    ]
+  });
+</script>
+
+</body>
+</html>

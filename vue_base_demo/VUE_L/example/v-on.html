@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>v-on实例</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <!-- 压缩版无法使用vue.js devtools -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.min.js"></script> -->
+</head>
+<body>
+<h1>v-on实例</h1>
+<hr>
+<div id="app">
+  得分：{{fs}}
+  <p>
+    <button v-on:click="jiafen">加分</button>
+  </p>
+  <p>
+    <button @click="jianfen">减分</button>
+  </p>
+  <input type="text" v-on:keyup.enter="onEnter" v-model="fs2">
+</div>
+
+<script type="text/javascript">
+  var app = new Vue({
+    el: "#app",
+    data: function () {
+      return {
+        fs: 0,
+        fs2: 1
+      }
+    },
+    methods: {
+      jiafen: function () {
+        this.fs++;
+      },
+      jianfen: function () {
+        if (this.fs > 0) {
+          this.fs--;
+        }
+      },
+      onEnter: function () {
+        this.fs = this.fs + parseInt(this.fs2);
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
