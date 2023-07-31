@@ -14,7 +14,9 @@
     "bootstrap": "^3.4.1",
     "jquery": "^3.6.0",
     "mint-ui": "^2.2.13",
+    "moment": "^2.29.4",
     "vue": "^2.6.12",
+    "vue-resource": "^1.5.2",
     "vue-router": "^3.5.1"
   },
   "devDependencies": {

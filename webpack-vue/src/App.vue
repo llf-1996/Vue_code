@@ -1,58 +1,62 @@
 <template>
-  <div>
-    <div>App组件</div>
-    <mt-button type="danger" icon="back" @click="show">点我</mt-button>
-    <mt-button type="danger" icon="more">default</mt-button>
-    <mt-button type="danger" size="small" plain>default</mt-button>
-    <mt-button type="danger" size="large" disabled>default</mt-button>
-
-    <button type="button" class="mui-btn mui-btn-royal">紫色</button>
-
-    <br><br>
-    <hr>
-    <div>
-      <router-link to="/account">Account</router-link>
-      <router-link to="/goodslist">Goodslist</router-link>
+  <div class="app-container">
+    <!-- 顶部Header区域 -->
+    <mt-header fixed title="黑马程序员 Vue项目"></mt-header>
+    <!-- 路由router-view区域 -->
+    <transition>
       <router-view></router-view>
-    </div>
+    </transition>
+    <!-- 底部tabbar区域 -->
+    <nav class="mui-bar mui-bar-tab">
+      <router-link class="mui-tab-item" to="/home">
+        <span class="mui-icon mui-icon-home"></span>
+        <span class="mui-tab-label">首页</span>
+      </router-link>
+      <router-link class="mui-tab-item" to="/member">
+        <span class="mui-icon mui-icon-contact"></span>
+        <span class="mui-tab-label">会员</span>
+      </router-link>
+      <router-link class="mui-tab-item" to="/shopcar">
+        <span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge">9</span></span>
+        <span class="mui-tab-label">购物车</span>
+      </router-link>
+      <router-link class="mui-tab-item" to="/search">
+        <span class="mui-icon mui-icon-search"></span>
+        <span class="mui-tab-label">搜索</span>
+      </router-link>
+    </nav>
 
   </div>
 </template>
 
 <script>
-  // 按需导入Toast
-  import {Toast} from 'mint-ui'
   export default {
     data() {
-      return {
-        toastInstanse: null
-      }
+      return {}
     },
-    created () {
-      this.getList()
-    },
-    methods: {
-      getList () {
-        this.show();
-        setTimeout(() => {
-          this.toastInstanse.close()
-        }, 3000)
-      },
-      show() {
-        // Toast('提示信息')
-        this.toastInstanse = Toast({
-          message: '消息',
-          // 显示时间，单位毫秒
-          duration: -1,
-          position: 'top',
-          iconClass: 'glyphicon glyphicon-heart',
-          className: 'mytoast'
-        });
-      }
-    }
+    methods: {}
   }
 </script>
 
-<style>
+<style lang="scss" scoped>
+  .app-container {
+    padding-top: 40px;
+    padding-bottom: 50px;
+    overflow-x: hidden;
+  }
 
+  /*tabbar切换动画*/
+  .v-enter {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  .v-leave-to {
+    opacity: 0;
+    transform: translateX(-100%);
+    position: absolute;
+  }
+  .v-enter-active,
+  .v-leave-active {
+    transition: all 0.5s ease;
+  }
 </style>

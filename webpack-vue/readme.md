@@ -1,9 +1,6 @@
-> webpack3、vue2项目骨架  
-> from https://github.com/llf-1996/webpack-vue.git
-
 ## 项目启动
 ```bash
-npm i
+cnpm i
 npm run dev
 ```
 
@@ -37,15 +34,12 @@ cnpm install babel-plugin-component -D
   ...
   "plugins": [
     ...
-    [
-      "component",
-      [
-        {
-          "libraryName": "mint-ui",
-          "style":  true
-        }
-      ]
-    ]
+    ["component", [
+      {
+        "libraryName": "mint-ui",
+        "style":  true
+      }
+    ]]
   ]
 }
 
@@ -56,3 +50,9 @@ cnpm install babel-plugin-component -D
 import {Button} from 'mint-ui'
 Vue.component(Button.name, Button)
 ```
+
+## 安装vue-resource
+```bash
+cnm install vue-resource@1 -S
+```
+
